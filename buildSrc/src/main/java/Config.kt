@@ -4,7 +4,7 @@ object Config {
     const val androidMinSdk = 22
     const val androidTargetSdk = 28
     const val androidCompileSdk = 28
-    const val applicationId = "com.github.kinopoisk.test.task.app"
+    const val applicationId = "com.github.kinopoisk.app"
     const val versionCode = 1
     const val versionName = "1.0.0"
 }
@@ -17,6 +17,7 @@ object Versions {
     const val androidToolsPlugin = "4.0.0"
     const val fabricPlugin = "1.28.1"
     const val ktlintPlugin = "9.2.1"
+    const val googleServicesPlugin = "4.3.3"
 
     // Android libraries
     const val annotationsLibrary = "1.0.1"
@@ -52,6 +53,7 @@ object Plugins {
     const val kotlin = "gradle-plugin"
     const val versions = "com.github.ben-manes.versions"
     const val androidTools = "com.android.tools.build:gradle:${Versions.androidToolsPlugin}"
+    const val googleServices = "com.google.gms:google-services:${Versions.googleServicesPlugin}"
     const val fabric = "io.fabric.tools:gradle:${Versions.fabricPlugin}"
     const val androidApp = "com.android.application"
     const val kotlinAndroidApp = "kotlin-android"

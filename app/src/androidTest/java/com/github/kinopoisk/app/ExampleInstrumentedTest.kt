@@ -1,4 +1,4 @@
-package com.github.kinopoisk.test.task
+package com.github.kinopoisk.app
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.github.kinopoisk.test.task", appContext.packageName)
+        assertEquals("com.github.kinopoisk.app", appContext.packageName)
     }
 }

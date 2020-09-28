@@ -1,4 +1,4 @@
-package com.github.kinopoisk.test.task
+package com.github.kinopoisk.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.github.kinopoisk.test.task
+package com.github.kinopoisk.app
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
