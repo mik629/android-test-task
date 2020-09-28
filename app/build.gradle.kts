@@ -116,3 +116,5 @@ dependencies {
     testImplementation(Libs.mockito)
     testImplementation(Libs.mockitoKotlin)
 }
+
+apply(plugin = Plugins.googleServicesApp)
