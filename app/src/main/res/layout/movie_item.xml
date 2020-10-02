@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/movie_card"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="@dimen/movie_card_elevation"
+        app:cardUseCompatPadding="true">
+
+    <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.55"/>
+
+        <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.45"
+                android:gravity="center"
+                android:maxLines="2"
+                android:padding="@dimen/activity_double_margin"
+                android:background="@drawable/movie_title_background"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:textSize="@dimen/text_regular_size"
+                tools:text="Осуждение и убийство Жана Поля Марата, осуществленные пациентами Чарентонской психбольницы под руководством маркиза де Сада"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

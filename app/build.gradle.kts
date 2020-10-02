@@ -1,3 +1,4 @@
+import java.io.FileInputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,26 +30,26 @@ android {
         getByName("debug") {
             storeFile = file("../keystore/debug.keystore")
         }
-//        create("release") {
-//            val keystoreProperties = Properties()
-//            keystoreProperties.load(FileInputStream(rootProject.file("keystore.properties")))
-//            storeFile = file(keystoreProperties.getProperty("storeFile"))
-//            storePassword = keystoreProperties.getProperty("storePassword")
-//            keyAlias = keystoreProperties.getProperty("keyAlias")
-//            keyPassword = keystoreProperties.getProperty("keyPassword")
-//        }
+        create("release") {
+            val keystoreProperties = Properties()
+            keystoreProperties.load(FileInputStream(rootProject.file("keystore.properties")))
+            storeFile = file(keystoreProperties.getProperty("storeFile"))
+            storePassword = keystoreProperties.getProperty("storePassword")
+            keyAlias = keystoreProperties.getProperty("keyAlias")
+            keyPassword = keystoreProperties.getProperty("keyPassword")
+        }
     }
     buildTypes {
         getByName("debug") {
             signingConfig = signingConfigs["debug"]
             isDebuggable = true
         }
-//        getByName("release") {
-//            isMinifyEnabled = true
-//            isShrinkResources = true
-//            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-//            signingConfig = signingConfigs["release"]
-//        }
+        getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs["release"]
+        }
     }
     flavorDimensions("server")
     productFlavors {
@@ -102,7 +103,6 @@ dependencies {
     kapt(Libs.moshiCodeGen)
     implementation(Libs.cicerone)
     implementation(Libs.adapterDelegates)
-//    implementation(Libs.paging)
     implementation(Libs.firebase)
     implementation(Libs.crashlytics)
     implementation(Libs.viewBindingProperty)
