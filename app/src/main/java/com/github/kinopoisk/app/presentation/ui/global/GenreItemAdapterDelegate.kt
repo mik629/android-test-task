@@ -2,7 +2,9 @@ package com.github.kinopoisk.app.presentation.ui.global
 
  import android.view.LayoutInflater
  import android.view.ViewGroup
+ import androidx.core.content.ContextCompat
  import androidx.recyclerview.widget.RecyclerView
+ import com.github.kinopoisk.app.R
  import com.github.kinopoisk.app.databinding.GenreItemBinding
  import com.github.kinopoisk.app.domain.models.GenreItem
  import com.github.kinopoisk.app.domain.models.MovieListItem
@@ -34,6 +36,9 @@ class GenreItemAdapterDelegate(
             with(binding.genreBtn) {
                 text = item.name
                 setOnClickListener { clickListener(item) }
+                setBackgroundColor(
+                    ContextCompat.getColor(binding.root.context, if (item.isChecked) R.color.blue else R.color.colorPrimary)
+                )
             }
         }
     }

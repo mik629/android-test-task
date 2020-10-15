@@ -7,5 +7,5 @@ import moxy.viewstate.strategy.StateStrategyType
 
 interface MovieListView : MvpView {
     @StateStrategyType(AddToEndSingleStrategy::class)
-    fun showListItems(items: List<MovieListItem>)
+    fun showListItems(genre: String, items: List<MovieListItem>)
 }

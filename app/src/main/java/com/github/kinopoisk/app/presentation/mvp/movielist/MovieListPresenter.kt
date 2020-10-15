@@ -36,11 +36,11 @@ class MovieListPresenter @Inject constructor(
             val movies = moviesInteractor.getMovies(moviesGenre)
             items.add(HeaderItem(resourceManager.getString(R.string.genre_list_header)))
             items.addAll(movies.flatMap { it.genres }.distinct().map { GenreItem(it) }.sortedByDescending { it.name })
-            items.add(GenreItem(genreAll))
+            items.add(GenreItem(genreAll, true))
             items.add(HeaderItem(resourceManager.getString(R.string.movie_list_header)))
             items.addAll(movies.sortedBy { it.localizedName })
         }.invokeOnCompletion {
-            viewState.showListItems(items)
+            viewState.showListItems(genreAll, items)
         }
     }
 
@@ -49,7 +49,11 @@ class MovieListPresenter @Inject constructor(
     }
 
     fun onGenreItemClick(item: GenreItem) {
+        items.filterIsInstance<GenreItem>()
+            .forEach { it.isChecked = (it.name == item.name) }
+
         viewState.showListItems(
+            item.name,
             items.filter {
                 it !is MovieItem || item.name == genreAll || it.genres.contains(item.name)
             }
