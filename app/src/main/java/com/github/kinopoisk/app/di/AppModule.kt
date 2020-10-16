@@ -1,9 +1,6 @@
 package com.github.kinopoisk.app.di
 
 import android.content.Context
-import androidx.datastore.DataStore
-import androidx.datastore.preferences.Preferences
-import androidx.datastore.preferences.createDataStore
 import com.github.kinopoisk.app.BuildConfig
 import com.github.kinopoisk.app.CrashlyticsTree
 import com.github.kinopoisk.app.domain.ResourceManager
@@ -50,11 +47,6 @@ class AppModule {
     @Provides
     @Singleton
     fun provideFirebaseAnalytics(context: Context) = FirebaseAnalytics.getInstance(context)
-
-    @Provides
-    @Singleton
-    fun provideDataStore(context: Context): DataStore<Preferences> =
-        context.createDataStore(name = "movies")
 
     companion object {
         const val APP_CONTEXT = "appcontext"

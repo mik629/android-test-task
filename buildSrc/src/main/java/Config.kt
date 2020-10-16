@@ -25,7 +25,6 @@ object Versions {
     const val materialLibrary = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val navigation = "2.2.2"
-    const val dataStore = "1.0.0-alpha01"
     const val googleAuth = "18.1.0"
 
     // Third party Libraries
@@ -70,8 +69,6 @@ object Libs {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    const val dataStore = "androidx.datastore:datastore-preferences:${Versions.dataStore}"
-    const val dataStoreProto = "androidx.datastore:datastore-core:${Versions.dataStore}"
     const val googleAuth = "com.google.android.gms:play-services-auth:${Versions.googleAuth}"
 
     const val kotlinStdlib = "stdlib-jdk7"

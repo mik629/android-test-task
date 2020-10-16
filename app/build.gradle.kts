@@ -107,7 +107,6 @@ dependencies {
     implementation(Libs.crashlytics)
     implementation(Libs.viewBindingProperty)
     implementation(Libs.moshiAdapters)
-    implementation(Libs.dataStore)
     implementation(Libs.googleAuth)
 
     testImplementation(Libs.junit)
