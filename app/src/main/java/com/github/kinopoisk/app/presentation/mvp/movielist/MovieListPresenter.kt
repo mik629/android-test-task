@@ -40,7 +40,7 @@ class MovieListPresenter @Inject constructor(
             items.add(HeaderItem(resourceManager.getString(R.string.movie_list_header)))
             items.addAll(movies.sortedBy { it.localizedName })
         }.invokeOnCompletion {
-            viewState.showListItems(genreAll, items)
+            viewState.showListItems(genreAll, items.filterIsInstance<GenreItem>().size, items)
         }
     }
 
@@ -49,15 +49,15 @@ class MovieListPresenter @Inject constructor(
     }
 
     fun onGenreItemClick(item: GenreItem) {
-        items.filterIsInstance<GenreItem>()
-            .forEach { it.isChecked = (it.name == item.name) }
+        val genres = items.filterIsInstance<GenreItem>()
+        genres.forEach { it.isChecked = (it.name == item.name) }
 
         viewState.showListItems(
             item.name,
+            genres.size,
             items.filter {
                 it !is MovieItem || item.name == genreAll || it.genres.contains(item.name)
-            }
-        )
+            })
     }
 
     fun onBackPressed() {

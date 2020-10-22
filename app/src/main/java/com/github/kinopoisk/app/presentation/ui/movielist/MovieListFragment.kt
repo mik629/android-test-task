@@ -56,26 +56,25 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movielist), MovieListVi
             ViewPreloadSizeProvider(),
             PRELOAD_COUNT
         )
-        val moviesLayoutManager = GridLayoutManager(requireContext(), COLUMN_COUNT)
-        moviesLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                return when(position) {
-                    0, 15 -> COLUMN_COUNT
-                    else -> 1
-                }
-            }
-        }
-
         with(binding) {
             movieList.apply {
                 addOnScrollListener(preloader)
-                layoutManager = moviesLayoutManager
                 adapter = listAdapter
             }
         }
     }
 
-    override fun showListItems(genre: String, items: List<MovieListItem>) {
+    override fun showListItems(genre: String, genresCount: Int, items: List<MovieListItem>) {
+        val moviesLayoutManager = GridLayoutManager(requireContext(), COLUMN_COUNT)
+        moviesLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return when(position) {
+                    0, genresCount + 1 -> COLUMN_COUNT
+                    else -> SINGLE_COLUMN
+                }
+            }
+        }
+        binding.movieList.layoutManager = moviesLayoutManager
         gridMovieListAdapter.items = ArrayList(items)
         movieGenre = genre
         gridMovieListAdapter.notifyDataSetChanged()
@@ -87,6 +86,7 @@ class MovieListFragment : BaseFragment(R.layout.fragment_movielist), MovieListVi
     }
 
     companion object {
+        const val SINGLE_COLUMN = 1
         const val COLUMN_COUNT = 2
         const val PRELOAD_COUNT = 20
         const val ARG_MOVIES_GENRE = "movieGenre"
